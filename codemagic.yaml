@@ -4,7 +4,7 @@ workflows:
     instance_type: mac_mini_m1
     environment:
       vars:
-        EXPO_TOKEN: $EXPO_TOKEN  
+        EXPO_TOKEN: $EXPO_TOKEN  # Aseta tämä CodeMagicin ympäristömuuttujissa
       node: 18
     triggering:
       events:
@@ -22,8 +22,3 @@ workflows:
         script: eas build --platform ios --non-interactive
     artifacts:
       - build/**/*
-    cache:
-      paths:
-        - node_modules/**/*
-        - .expo/**/*
-        - .eas/**/*
