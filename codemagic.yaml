@@ -1,0 +1,29 @@
+workflows:
+  expo_managed:
+    name: Expo Managed Build
+    instance_type: mac_mini_m1
+    environment:
+      vars:
+        EXPO_TOKEN: $EXPO_TOKEN  
+      node: 18
+    triggering:
+      events:
+        - push
+    scripts:
+      - name: Asenna Expo CLI
+        script: npm install -g expo-cli
+      - name: Asenna EAS CLI
+        script: npm install -g eas-cli
+      - name: Asenna riippuvuudet
+        script: npm install
+      - name: Rakenna Android
+        script: eas build --platform android --non-interactive
+      - name: Rakenna iOS
+        script: eas build --platform ios --non-interactive
+    artifacts:
+      - build/**/*
+    cache:
+      paths:
+        - node_modules/**/*
+        - .expo/**/*
+        - .eas/**/*

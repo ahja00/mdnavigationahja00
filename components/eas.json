@@ -1,0 +1,19 @@
+{
+    "cli": {
+      "version": ">= 0.52.0"
+    },
+    "build": {
+      "android": {
+        "release": {
+          "workflow": "managed",
+          "distribution": "store"
+        }
+      },
+      "ios": {
+        "release": {
+          "workflow": "managed",
+          "distribution": "store"
+        }
+      }
+    }
+  }
